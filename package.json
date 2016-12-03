@@ -1,6 +1,6 @@
 {
-  "name": "aframe-hello-world-boilerplate",
-  "description": "Boilerplate with A-Frame's 'Hello, World!' of WebVR.",
+  "name": "space-simulator",
+  "description": "A space environment using WebVR.",
   "version": "0.3.0",
   "license": "MIT",
   "scripts": {

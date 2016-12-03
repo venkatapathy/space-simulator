@@ -1,0 +1,22 @@
+<!--
+<a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFB520">
+
+</a-cylinder>
+
+
+<a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#31ea78">
+
+
+</a-plane>
+-->
+
+
+<a-box position="-1 0.5 -3" rotation="0 45 0" color="#ed8c27" scale="0.5 1 2" scale-on-click="to: 5 5 5">
+  <a-animation attribute="rotation" begin="click" repeat="indefinite" to="20 360 50"></a-animation>
+</a-box>
+
+
+<a-box color="#6173F4" position="-5 4 5"
+       radius="0.5" width="2" height="3" depth="2" >
+  <a-animation attribute="rotation" begin="click" repeat="indefinite" to="20 360 50"></a-animation>
+</a-box>

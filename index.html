@@ -19,34 +19,65 @@
       Positive Z-axis is pointing out of the screen towards us
 
       -->
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#ed8c27" scale="0.5 1 2">
-        <a-animation attribute="rotation" begin="hover" repeat="indefinite" to="20 360 50"></a-animation>
-      </a-box>
 
-      <a-sphere position="0 1.25 -5" radius="1.25" color="#F81F34">
+      <a-sky src="images/space.jpg"></a-sky>
+      <a-light type="directional" position="0 0 0" rotation="-90 0 0"   target="#directionaltarget">
+	      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+      </a-light>
+      <a-light type="point" color="#FFF" position="-30 80 0" look-at="a-sphere"></a-light>
+      <a-light type="point" color="#AAA" position="30 80 0" look-at="a-sphere"></a-light>
+
+      <!-- Mercury -->
+      <a-sphere position="5 1.25 -2" radius="1.25" scale="1 1 1" src="images/mercury.jpg">
+        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
       </a-sphere>
 
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFB520">
+      <!-- Venus -->
+      <a-sphere position="4.5 6 -10" radius="1.25" scale="1.5 1.5 1.5" src="images/venus.jpg">
+        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+      </a-sphere>
 
-      </a-cylinder>
-
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#31ea78">
-
-      </a-plane>
-
-      <a-box color="#6173F4" position="-5 4 5"
-             radius="0.5" width="2" height="3" depth="2" >
-        <a-animation attribute="rotation" begin="click" repeat="indefinite" to="20 360 50"></a-animation>
-      </a-box>
-
-      <a-sphere position="10 0.5 10" radius="1.25" scale="4 4 4" src="images/earth.jpg" src="images/earth.jpg"></a-sphere>
+      <!-- Earth -->
+      <a-sphere position="10 0.5 10" radius="1.25" scale="4 4 4" src="images/earth.jpg">
+        <a-animation attribute="rotation" begin="click" repeat="indefinite" to="0 360 0"></a-animation>
+      </a-sphere>
 
 
-      <a-sky color="#dddddd"></a-sky>
+      <!-- Mars -->
+      <a-sphere position="0 1.25 -5" radius="1.25" src="images/mars.jpg">
+        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+      </a-sphere>
+
+      <!-- Jupiter -->
+      <a-sphere position="-40 0.5 -30" radius="1.25" width="50" height="50" scale="15 15 15" src="images/jupiter.jpg">
+        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+      </a-sphere>
+
+      <!-- Saturn -->
+      <a-sphere position="-100 0.5 30" radius="1.25" width="40" height="40" scale="10 10 10" src="images/saturn.png">
+        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+      </a-sphere>
+
+      <!-- Uranus -->
+      <a-sphere position="30 0.5 3" radius="1.25" scale="5 5 5" src="images/uranus.png">
+        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+      </a-sphere>
+
+      <!-- Neptune -->
+      <a-sphere position="-105 0.5 8" radius="1.25" scale="8 8 8" src="images/neptune.jpg">
+        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+      </a-sphere>
+
+      <!-- Sun -->
+      <a-sphere position="10 -30 -20" radius="1.25" scale="8 8 8" src="images/sun.jpg">
+        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+      </a-sphere>
+
 
     </a-scene>
 
     <!-- Production Version, Minified -->
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+    <script type="text/javascript" src="animation.js"></script>
   </body>
 </html>
