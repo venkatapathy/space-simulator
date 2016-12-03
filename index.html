@@ -2,16 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Hello, World! - A-Frame</title>
+    <title>Space Simulator</title>
     <meta name="description" content="Hello, World! - A-Frame">
   </head>
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#16AEA3"></a-box>
+
+      <!--
+
+      Positive X-axis is “right”
+      Positive Y-axis is “up”
+      Positive Z-axis is pointing out of the screen towards us
+
+      -->
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#ed8c27" scale="0.5 1 2"></a-box>
+
       <a-sphere position="0 1.25 -5" radius="1.25" color="#F81F34"></a-sphere>
+
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFB520"></a-cylinder>
+
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#31ea78"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+
+      <a-box color="#6173F4" position="-5 4 5" radius="0.5" width="2" height="3" depth="2"
+      color="#f95691"></a-box>
+
+      <a-sphere position="10 0.5 10" radius="1.25" scale="4 4 4" src="images/earth.jpg"></a-sphere>
+
+
+      <a-sky color="#dddddd"></a-sky>
+
     </a-scene>
 
     <!-- Production Version, Minified -->
