@@ -4,15 +4,20 @@
     <meta charset="utf-8">
     <title>Space Simulator</title>
     <meta name="description" content="Space Simulator">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" href="images/star.ico">
+      <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.1/dist/aframe-extras.min.js"></script>
+      
   </head>
   <body>
     <a-scene>
       <!-- Mouse Cursor -->
-      <a-camera position="-200 0 0">
-        <a-cursor color="#ffffff"></a-cursor>
-      </a-camera>
+       <a-entity camera="userHeight: 1.6"
+                universal-controls jump-ability="maxJumps: 3;
+                              distance: 100;">
+      </a-entity>
 
       <!--
 
@@ -75,11 +80,12 @@
         <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
       </a-sphere>
 
-      
+     
+
 
     </a-scene>
 
     <!-- Production Version, Minified -->
-    <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
+   
   </body>
 </html>
