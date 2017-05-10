@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Space Simulator</title>
-    <meta name="description" content="Space Simulator">
-    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="images/star.ico">
-      <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
-      <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.1/dist/aframe-extras.min.js"></script>
-      
-  </head>
-  <body>
-    <a-scene>
-      <!-- Mouse Cursor -->
-       <a-entity camera="userHeight: 1.6"
-                universal-controls jump-ability="maxJumps: 3;
-                              distance: 100;">
-      </a-entity>
 
-      <!--
+<head>
+  <meta charset="utf-8">
+  <title>Space Simulator</title>
+  <meta name="description" content="Space Simulator">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="images/star.ico">
+  <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.1/dist/aframe-extras.min.js"></script>
+
+</head>
+
+<body>
+  <a-scene>
+    <!-- Mouse Cursor -->
+    <a-entity camera="userHeight: 1.6" universal-controls jump-ability="distance: 500;" position="30 5 219" rotate="-44 -15 160">
+    </a-entity>
+
+    <!--
 
       Positive X-axis is “right”
       Positive Y-axis is “up”
@@ -27,65 +27,101 @@
 
       -->
 
-      <a-sky src="images/space2.jpg"></a-sky>
-      <a-light type="directional" position="0 0 0" rotation="-90 0 0"   target="#directionaltarget">
-	      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
-      </a-light>
-      <a-light type="point" color="#FFF" position="-30 80 0" look-at="a-sphere"></a-light>
-      <a-light type="point" color="#AAA" position="30 80 0" look-at="a-sphere"></a-light>
+    <a-sky src="images/space2.jpg"></a-sky>
+    <a-light type="directional" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
+      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
+    </a-light>
+    <a-light type="point" color="#FFF" position="-30 80 0" look-at="a-sphere"></a-light>
+    <a-light type="point" color="#AAA" position="30 80 0" look-at="a-sphere"></a-light>
 
-      <!-- Mercury -->
-      <a-sphere position="-20 -3 20" radius="1.25" scale="2 2 2" src="images/mercury.jpg">
-        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-      </a-sphere>
 
-      <!-- Venus -->
-      <a-sphere position="-10 3 -13" radius="1.25" scale="1.5 1.5 1.5" src="images/venus.jpg">
-        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-      </a-sphere>
 
-      <!-- Earth -->
-      <a-sphere position="0 -3 0" radius="1.25" scale="2.5 2.5 2.5" src="images/earth.jpg">
+
+
+    <!-- Earth -->
+    <a-entity position="0 0 -10">
+      <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="images/earth.jpg">
         <a-animation attribute="rotation" begin="click" repeat="indefinite" to="0 360 0"></a-animation>
       </a-sphere>
+      <a-text position="4 0 0" value="Earth" height="20" width="20" color="red">
+    </a-entity>
 
-      <!-- Mars -->
-      <a-sphere position="10 -3 60" radius="1.25" scale="5 5 5" src="images/mars.jpg">
-        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-      </a-sphere>
+    <!-- Mars -->
+     <a-entity position="30 0 -50">
+    <a-sphere  radius="1.25" scale="5 5 5" src="images/mars.jpg">
+      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+    </a-sphere>
+    <a-text position="-9 0 0" value="Mars" height="20" width="20" color="red">
+     </a-entity>
+
+    <!-- Venus -->
+     <a-entity position="0 0 -100">
+    <a-sphere  radius="1.25" scale="1.5 1.5 1.5" src="images/venus.jpg">
+      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+    </a-sphere>
+    <a-text position="4 0 0" value="Venus" height="20" width="20" color="red">
+     </a-entity>
+
+   
+    <!-- Mercury -->
+     <a-entity position="30 0 -150">
+    <a-sphere  radius="1.25" scale="2 2 2" src="images/mercury.jpg">
+      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+    </a-sphere>
+    <a-text position="4 0 0" value="Mercury" height="20" width="20" color="red">
+     </a-entity>
+
+    <!-- Sun -->
+     <a-entity position="0 0 -200">
+    <a-sphere radius="1.25" scale="50 50 50" src="images/sun.jpg">
+      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+    </a-sphere>
+    <a-text position="70 0 0" value="Sun" height="200" width="200" color="red">
+     </a-entity>
 
       <!-- Jupiter -->
-      <a-sphere position="30 -3 -80" radius="1.25" scale="20 20 20" src="images/jupiter.jpg">
-        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-      </a-sphere>
-
-      <!-- Saturn -->
-      <a-sphere position="90 -3 70" radius="1.25" scale="18 18 18" src="images/saturn.png">
-        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-      </a-sphere>
+     <a-entity position="0 0 50">
+    <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="images/jupiter.jpg">
+      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+    </a-sphere>
+    <a-text position="4 0 0" value="Jupiter" height="20" width="20" color="red">
+     </a-entity>
 
 
-      <!-- Uranus -->
-      <a-sphere position="100 8 -40" radius="1.25" scale="9 9 9" src="images/uranus.png">
-        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-      </a-sphere>
-
-      <!-- Neptune -->
-      <a-sphere position="60 5 0" radius="1.25" scale="3 3 3" src="images/neptune.jpg">
-        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-      </a-sphere>
-
-      <!-- Sun -->
-      <a-sphere position="-200 -10 0" radius="1.25" scale="50 50 50" src="images/sun.jpg">
-        <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-      </a-sphere>
-
-     
+    <!-- Saturn -->
+     <a-entity position="30 0 100">
+    <a-sphere  radius="1.25" scale="2.5 2.5 2.5" src="images/saturn.png">
+      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+    </a-sphere>
+    <a-text position="4 0 0" value="Saturn" height="20" width="20" color="red">
+     </a-entity>
 
 
-    </a-scene>
+    <!-- Uranus -->
+     <a-entity position="0 0 150">
+    <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="images/uranus.png">
+      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+    </a-sphere>
+    <a-text position="4 0 0" value="Uranus" height="20" width="20" color="red">
+     </a-entity>
 
-    <!-- Production Version, Minified -->
-   
-  </body>
+    <!-- Neptune -->
+     <a-entity position="30 0 200">
+    <a-sphere radius="1.25" scale="3 3 3" src="images/neptune.jpg">
+      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
+    </a-sphere>
+    <a-text position="4 0 0" value="Neptune" height="20" width="20" color="red">
+     </a-entity>
+
+
+
+
+
+
+  </a-scene>
+
+  <!-- Production Version, Minified -->
+
+</body>
+
 </html>
