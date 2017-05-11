@@ -29,6 +29,8 @@
   <option data-info='{"x":30, "y":1,"z":100}'>Saturn</option>
   <option data-info='{"x":0, "y":1,"z":150}'>Uranus</option>
   <option data-info='{"x":30, "y":1,"z":190}'>Neptune</option>
+
+  <option value="eagleview" data-info='{"x":30, "y":93,"z":20}' data-rotate='{"x":-45,"y":0, "z":0}'>Eagles View</option>
 </select>
   </div>
   <a-scene>
@@ -273,11 +275,23 @@
 
   <!-- Production Version, Minified -->
   <script>
+    var hasRotated=false;
     $("select").change(function () {
       curPos = $(this).find(":selected").data("info");
       //alert($(this).find(":selected").data("info"));
       document.querySelector("#mycamera").setAttribute('position', curPos);
-    });
+      if(this.value!="eagleview"){
+      if(hasRotated){
+        
+        document.querySelector("#mycamera").setAttribute('rotation', {x:45,y:0, z:0});
+        hasRotated=false;
+      }
+      curRot = $(this).find(":selected").data("rotate");
+      if(curRot){
+        hasRotated=true;
+        document.querySelector("#mycamera").setAttribute('rotation', curRot);
+      }
+    }});
 
   </script
 </body>
