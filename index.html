@@ -7,16 +7,61 @@
   <meta name="description" content="Space Simulator">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
   <!-- Favicon -->
-  <link rel="shortcut icon" href="images/star.ico">
+
   <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.8.1/dist/aframe-extras.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/space.css">
 
 </head>
 
 <body>
+  <div class="select-style">
+      <select style="font-size: 20px;">
+        <option selected="selected" data-info='{"x":30, "y":1,"z":190}'>--Select a Planet to jump to--</option>
+  <option data-info='{"x":0, "y":1,"z":-150}'>Sun</option>
+  <option data-info='{"x":30, "y":1,"z":-120}'>Mercury</option>
+  <option data-info='{"x":0, "y":1,"z":-80}'>Venus</option>
+  <option data-info='{"x":30, "y":1,"z":-20}'>Mars</option>
+  <option data-info='{"x":0, "y":1,"z":10}'>Earth</option>
+  <option data-info='{"x":0, "y":1,"z":60}'>Jupiter</option>
+  <option data-info='{"x":30, "y":1,"z":100}'>Saturn</option>
+  <option data-info='{"x":0, "y":1,"z":150}'>Uranus</option>
+  <option data-info='{"x":30, "y":1,"z":190}'>Neptune</option>
+</select>
+  </div>
   <a-scene>
+    <a-assets>
+      <img id="spaceTexture" src="images/space2.jpg">
+
+      <!-- Earth -->
+      <img id="earth" src="images/earth.jpg">
+      <!-- Mars -->
+      <img id="mars" src="images/mars.jpg">
+      <!-- Venus -->
+      <img id="venus" src="images/venus.jpg">
+      <!-- Mercury -->
+      <img id="mercury" src="images/mercury.jpg">
+      <!-- Sun -->
+      <img id="sun" src="images/sun.jpg">
+      <!-- Jupiter -->
+      <img id="jupiter" src="images/jupiter.jpg">
+      <!-- Saturn -->
+      <img id="saturn" src="images/saturn.png">
+      <!-- Uranus -->
+      <img id="uranus" src="images/uranus.png">
+      <!-- Neptune -->
+      <img id="neptune" src="images/neptune.jpg">
+
+
+
+
+      <!-- ... -->
+    </a-assets>
+
     <!-- Mouse Cursor -->
-    <a-entity camera="userHeight: 1.6" universal-controls jump-ability="distance: 500;" position="30 5 219" rotate="-44 -15 160">
+    <a-entity id="mycamera" camera="userHeight: 1.6" universal-controls position="30 1 190" jump-ability="distance: 500">
     </a-entity>
 
     <!--
@@ -27,91 +72,197 @@
 
       -->
 
-    <a-sky src="images/space2.jpg"></a-sky>
-    <a-light type="directional" position="0 0 0" rotation="-90 0 0" target="#directionaltarget">
-      <a-entity id="directionaltarget" position="0 0 -1"></a-entity>
-    </a-light>
-    <a-light type="point" color="#FFF" position="-30 80 0" look-at="a-sphere"></a-light>
-    <a-light type="point" color="#AAA" position="30 80 0" look-at="a-sphere"></a-light>
+    <a-sky src="#spaceTexture"></a-sky>
 
 
+
+    <!-- Sun -->
+    <a-entity position="0 0 -300">
+      <a-sphere radius="1.25" scale="50 50 50" src="#sun">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
+      </a-sphere>
+      <a-entity position="100 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="20" width="50"></a-box>
+
+        <a-text color="black" value="Name: Sun" position="-20 2.5 0.5" height="80" width="80"></a-text>
+
+        <a-text color="blue" value="Indian Name: Surya" position="-20 -2.5 0.5" height="80" width="80"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+    </a-entity>
+
+    <!-- Mercury -->
+    <a-entity position="30 0 -150">
+      <a-sphere radius="1.25" scale="2 2 2" src="#mercury">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
+      </a-sphere>
+      <a-entity position="10 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="3" width="10"></a-box>
+
+        <a-text color="black" value="Name: Mercury" position="-4 0.5 0.5" height="15" width="15"></a-text>
+
+        <a-text color="blue" value="Indian Name: Budha" position="-4 -0.5 0.5" height="15" width="15"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+    </a-entity>
+
+    <!-- Venus -->
+    <a-entity position="0 0 -100">
+      <a-sphere radius="1.25" scale="1.5 1.5 1.5" src="#venus">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
+      </a-sphere>
+      <a-entity position="10 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="3" width="10"></a-box>
+
+        <a-text color="black" value="Name: Venus" position="-4 0.5 0.5" height="15" width="15"></a-text>
+
+        <a-text color="blue" value="Indian Name: Shukra" position="-4 -0.5 0.5" height="15" width="15"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+    </a-entity>
+
+    <!-- Mars -->
+    <a-entity position="30 0 -50">
+      <a-sphere radius="1.25" scale="5 5 5" src="#mars">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
+      </a-sphere>
+      <a-entity position="12 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="3" width="10"></a-box>
+
+        <a-text color="black" value="Name: Mars" position="-4 0.5 0.5" height="15" width="15"></a-text>
+
+        <a-text color="blue" value="Indian Name: Mangala" position="-4 -0.5 0.5" height="15" width="15"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+    </a-entity>
 
 
 
     <!-- Earth -->
     <a-entity position="0 0 -10">
-      <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="images/earth.jpg">
-        <a-animation attribute="rotation" begin="click" repeat="indefinite" to="0 360 0"></a-animation>
+      <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="#earth">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
       </a-sphere>
-      <a-text position="4 0 0" value="Earth" height="20" width="20" color="red">
+      <a-entity position="10 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="3" width="10"></a-box>
+
+        <a-text color="black" value="Name: Earth" position="-4 0.5 0.5" height="15" width="15"></a-text>
+
+        <a-text color="blue" value="Indian Name: Prithvi" position="-4 -0.5 0.5" height="15" width="15"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+
     </a-entity>
 
-    <!-- Mars -->
-     <a-entity position="30 0 -50">
-    <a-sphere  radius="1.25" scale="5 5 5" src="images/mars.jpg">
-      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-    </a-sphere>
-    <a-text position="-9 0 0" value="Mars" height="20" width="20" color="red">
-     </a-entity>
 
-    <!-- Venus -->
-     <a-entity position="0 0 -100">
-    <a-sphere  radius="1.25" scale="1.5 1.5 1.5" src="images/venus.jpg">
-      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-    </a-sphere>
-    <a-text position="4 0 0" value="Venus" height="20" width="20" color="red">
-     </a-entity>
 
-   
-    <!-- Mercury -->
-     <a-entity position="30 0 -150">
-    <a-sphere  radius="1.25" scale="2 2 2" src="images/mercury.jpg">
-      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-    </a-sphere>
-    <a-text position="4 0 0" value="Mercury" height="20" width="20" color="red">
-     </a-entity>
 
-    <!-- Sun -->
-     <a-entity position="0 0 -200">
-    <a-sphere radius="1.25" scale="50 50 50" src="images/sun.jpg">
-      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-    </a-sphere>
-    <a-text position="70 0 0" value="Sun" height="200" width="200" color="red">
-     </a-entity>
 
-      <!-- Jupiter -->
-     <a-entity position="0 0 50">
-    <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="images/jupiter.jpg">
-      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-    </a-sphere>
-    <a-text position="4 0 0" value="Jupiter" height="20" width="20" color="red">
-     </a-entity>
+
+
+    <!-- Jupiter -->
+    <a-entity position="0 0 40">
+      <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="#jupiter">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
+      </a-sphere>
+      <a-entity position="10 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="3" width="10"></a-box>
+
+        <a-text color="black" value="Name: Jupiter" position="-4 0.5 0.5" height="15" width="15"></a-text>
+
+        <a-text color="blue" value="Indian Name: Brhaspati" position="-4 -0.5 0.5" height="15" width="15"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+    </a-entity>
 
 
     <!-- Saturn -->
-     <a-entity position="30 0 100">
-    <a-sphere  radius="1.25" scale="2.5 2.5 2.5" src="images/saturn.png">
-      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-    </a-sphere>
-    <a-text position="4 0 0" value="Saturn" height="20" width="20" color="red">
-     </a-entity>
+    <a-entity position="30 0 80">
+      <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="#saturn">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
+      </a-sphere>
+      <!--<a-text position="4 0 0" value="Saturn" height="20" width="20" color="red">-->
+      <a-entity position="10 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="3" width="10"></a-box>
+
+        <a-text color="black" value="Name: Saturn" position="-4 0.5 0.5" height="15" width="15"></a-text>
+
+        <a-text color="blue" value="Indian Name: Shani" position="-4 -0.5 0.5" height="15" width="15"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+    </a-entity>
 
 
     <!-- Uranus -->
-     <a-entity position="0 0 150">
-    <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="images/uranus.png">
-      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-    </a-sphere>
-    <a-text position="4 0 0" value="Uranus" height="20" width="20" color="red">
-     </a-entity>
+    <a-entity position="0 0 130">
+      <a-sphere radius="1.25" scale="2.5 2.5 2.5" src="#uranus">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
+      </a-sphere>
+      <!--<a-text position="4 0 0" value="Uranus" height="20" width="20" color="red">-->
+      <a-entity position="10 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="3" width="10"></a-box>
+
+        <a-text color="black" value="Name: Uranus" position="-4 0.5 0.5" height="15" width="15"></a-text>
+
+        <a-text color="blue" value="Indian Name: Svetha" position="-4 -0.5 0.5" height="15" width="15"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+    </a-entity>
 
     <!-- Neptune -->
-     <a-entity position="30 0 200">
-    <a-sphere radius="1.25" scale="3 3 3" src="images/neptune.jpg">
-      <a-animation attribute="rotation" begin="click" repeat="5" to="0 360 0"></a-animation>
-    </a-sphere>
-    <a-text position="4 0 0" value="Neptune" height="20" width="20" color="red">
-     </a-entity>
+    <a-entity position="30 0 170">
+      <a-sphere radius="1.25" scale="3 3 3" src="#neptune">
+        <!--<a-animation attribute="rotation" repeat="indefinite" to="0 360 0"></a-animation>-->
+      </a-sphere>
+      <!--  <a-text position="4 0 0" value="Neptune" height="20" width="20" color="red">-->
+
+
+      <a-entity position="10 0 0">
+        <a-box text="value: Hello World;" depth="0.5" height="3" width="10"></a-box>
+
+        <a-text color="black" value="Name: Neptune" position="-4 0.5 0.5" height="15" width="15"></a-text>
+
+        <a-text color="blue" value="Indian Name: Varuna" position="-4 -0.5 0.5" height="15" width="15"></a-text>
+
+        <!--<a-text color="blue" value="Orbit Period: 164.8 years" position="-4 -0.5 0.5" height="15" width="15"></a-text>-->
+
+
+
+      </a-entity>
+
+    </a-entity>
 
 
 
@@ -121,7 +272,14 @@
   </a-scene>
 
   <!-- Production Version, Minified -->
+  <script>
+    $("select").change(function () {
+      curPos = $(this).find(":selected").data("info");
+      //alert($(this).find(":selected").data("info"));
+      document.querySelector("#mycamera").setAttribute('position', curPos);
+    });
 
+  </script
 </body>
 
 </html>
